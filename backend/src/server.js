@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000;
 
 connectDB()
   .then(() => {
-    app.listen(port, () => {
+    app.listen(port, "0.0.0.0", () => {
       console.log(`API running on http://localhost:${port}`);
     });
   })
