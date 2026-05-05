@@ -10,11 +10,15 @@ import userRoutes from "./routes/userRoutes.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
 const app = express();
+const clientUrl = (process.env.CLIENT_URL || "http://localhost:5173").replace(
+  /\/$/,
+  ""
+);
 
 app.use(helmet());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin: clientUrl,
     credentials: true
   })
 );
